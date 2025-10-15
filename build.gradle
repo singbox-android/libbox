@@ -3,13 +3,16 @@ plugins {
 }
 
 group = 'com.github.singbox-android'
-version = '1.12.9'
+version = '1.12.10'
 
 publishing {
     publications {
         maven(MavenPublication) {
             artifactId = 'libbox'
             artifact 'libbox.aar'
+            artifact('libbox-sources.jar') {
+                classifier = 'sources'
+            }
         }
     }
 }
