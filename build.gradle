@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.github.singbox-android'
-version = '1.13.7'
+version = '1.13.8'
 
 publishing {
     publications {
