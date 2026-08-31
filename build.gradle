@@ -3,7 +3,27 @@ plugins {
 }
 
 group = 'com.github.singbox-android'
-version = '1.13.21'
+version = '1.14.0'
+
+// libbox.aar 超过 GitHub 100MB 单文件限制，已改用 GitHub Releases 分发，不再提交到仓库。
+// 发布/构建时若本地缺失该文件，自动从对应版本的 Release 下载。
+def downloadLibboxAar = tasks.register('downloadLibboxAar') {
+    doLast {
+        def aarFile = file("$rootProject.projectDir/libbox.aar")
+        if (aarFile.exists()) {
+            println "libbox.aar 已存在，跳过下载"
+            return
+        }
+        def releaseUrl = "https://github.com/singbox-android/libbox/releases/download/${version}/libbox.aar"
+        println "libbox.aar 不存在，正在从 GitHub Releases 下载: ${releaseUrl}"
+        ant.get(src: releaseUrl, dest: aarFile)
+    }
+}
+
+// 确保发布前 aar 已就绪（JitPack 使用 publishToMavenLocal）
+tasks.named('publishToMavenLocal') {
+    dependsOn downloadLibboxAar
+}
 
 publishing {
     publications {

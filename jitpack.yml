@@ -1,6 +1,3 @@
-# 启用 Git LFS
-lfs:
-  install: true
 # 指定一个 JDK 版本
 jdk:
   - openjdk17

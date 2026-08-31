@@ -21,3 +21,6 @@ gradle-app.setting
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 local.properties
+
+# libbox.aar 超过 GitHub 100MB 单文件限制，改用 GitHub Releases 分发，不入库
+libbox.aar
