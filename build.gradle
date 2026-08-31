@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.github.singbox-android'
-version = '1.14.20'
+version = '1.14.0'
 
 // libbox.aar 超过 GitHub 100MB 单文件限制，已改用 GitHub Releases 分发，不再提交到仓库。
 // 发布/构建时若本地缺失该文件，自动从对应版本的 Release 下载。
